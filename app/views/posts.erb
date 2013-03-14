@@ -1,0 +1,8 @@
+  <article>
+  <% @posts.each do |post| %>
+    <h2><%= post.title %></h2><small><i>Written by:</i> <%= post.user.name %></small>
+    <p><%= post.content %></p>
+    <small><a href="/posts/<%= post.id %>">read more</a></small>
+  <% end %>
+  <%= will_paginate @posts %>
+  </article>

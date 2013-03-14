@@ -19,3 +19,6 @@ group :test do
   gem 'faker'
   gem 'rspec'
 end
+
+gem 'bcrypt-ruby'
+gem 'will_paginate', '~> 3.0.0'

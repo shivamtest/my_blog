@@ -19,6 +19,8 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
+require 'BCrypt'
+require 'securerandom'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
@@ -31,3 +33,8 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+require 'will_paginate'
+require 'will_paginate/active_record'  # or data_mapper/sequel
+
+# require 'will_paginate/view_helpers/sinatra'
+

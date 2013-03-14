@@ -10,18 +10,28 @@
 </style>
 
 <div class="container">
-  <h1>My Posts</h1>
   <nav id="main">
     <ul>
-      <li><a href="/posts/new">Create Post</a></li>
+      <% if current_user %>
+        <li><a href="/posts/new">Create Post</a></li>
+        <li><a href="/users/<%=current_user.id %>">My Profile</a></li>
+        <form action="/users/logout" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="signout">
+        </form>
+        <% else %>
+      <li><a href="/users/new">Signup</a></li>
+      <li><a href="/users/login">Login</a></li>
+      <% end %>
     </ul>
   </nav>
-  <% @posts.each do |post| %>
-    <h2><%= post.title %></h2>
-    <p><%= post.content %></p>
-    <small><a href="/posts/<%= post.id %>">read more</a></small>
-  <% end %>
+
+  <h1>All Posts</h1>
+    <%= erb :posts %>
 </div>
+<%= will_paginate @posts %>
+
+
 
 <aside>
   <h2>Tags</h2>
