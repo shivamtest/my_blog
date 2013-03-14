@@ -1,0 +1,37 @@
+<style type="text/css">
+  .container {
+    margin: 20px auto;
+    width: 600px;
+    padding: 0px 20px 20px 20px;
+  }
+  th {
+    text-align: left;
+  }
+</style>
+
+<div class="container">
+  <h1>My Posts</h1>
+  <nav id="main">
+    <ul>
+      <li><a href="/posts/new">Create Post</a></li>
+    </ul>
+  </nav>
+  <% @posts.each do |post| %>
+    <h2><%= post.title %></h2>
+    <p><%= post.content %></p>
+    <small><a href="/posts/<%= post.id %>">read more</a></small>
+  <% end %>
+</div>
+
+<aside>
+  <h2>Tags</h2>
+  <% @tags.each do |tag| %>
+  <ul>
+    <% if tag.posts.count > 0 %>
+    <li>
+      <a href="/tag/<%= tag.name %>"><%= tag.name %></a>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+</aside>

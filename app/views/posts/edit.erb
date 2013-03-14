@@ -1,0 +1,12 @@
+<form action="/posts/<%= @post.id %>/edit" method="post">
+	<input type="hidden" name="_method" value="put">
+	<%= erb :"posts/form" %>
+	<input type="text" name="tags"  value="<%= @post.tags.map { |tag| tag.name }.join(" ") %>">
+</fieldset>
+	<input type="submit" value="update post">
+</form>
+
+<form action="/posts/<%= @post.id %>/delete" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="delete post">
+</form>

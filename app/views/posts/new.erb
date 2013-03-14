@@ -1,0 +1,16 @@
+<section>
+	<% if @post.errors.any? %> 
+	  <% @post.errors.full_messages.each do |error| %> 
+	  <ul>
+		  <li><%= error%></li>
+	  </ul>
+	  <% end %>
+	<% end %>
+</section>
+
+<form action="/posts/new" method="post">
+	<%= erb :"posts/form" %>
+	<input type="text" name="tags"  placeholder="tag1 tag2 tag3"> <br/>
+	</fieldset>
+  <input type="submit" value="create post">
+</form>

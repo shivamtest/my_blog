@@ -1,0 +1,9 @@
+<h1><%= @tag.name %></h1>
+
+<div>
+	<% @posts.each do |post| %>
+	<h2><%= post.title %></h2>
+	<p><%= post.content %></p>
+	<small><a href="/posts/<%= post.id%>">Read More</a></small>
+	<% end %>
+</div>
